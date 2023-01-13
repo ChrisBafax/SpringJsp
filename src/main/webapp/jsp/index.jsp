@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -15,6 +16,7 @@
             <!-- Navbar -->
             <jsp:include page="navbar.jsp"/>
         </header>
+
         <div class="container ml-5 mr-5">
             <h1 class="display-1">Home</h1>
 

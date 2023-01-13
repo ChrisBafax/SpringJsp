@@ -12,4 +12,6 @@ public interface WebSiteInfoBO {
     List<WebSiteInfo> getAllWebSiteInfo() throws DataAccessException;
 
     void insertWebSiteInfo(WebSiteInfo webSiteInfo) throws DataAccessException;
+
+    void deleteWebSiteInfo(long id) throws DataAccessException;
 }

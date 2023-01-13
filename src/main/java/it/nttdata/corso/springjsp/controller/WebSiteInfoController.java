@@ -3,6 +3,7 @@ package it.nttdata.corso.springjsp.controller;
 import it.nttdata.corso.springjsp.business.interfaces.WebSiteInfoBO;
 import it.nttdata.corso.springjsp.model.WebSiteInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,5 +44,35 @@ public class WebSiteInfoController {
         webSiteInfo.setDescription(description);
         webSiteInfoBO.insertWebSiteInfo(webSiteInfo);
         return new ModelAndView("/jsp/createInfo.jsp", "operation", true);
+    }
+
+    @GetMapping("/deleteInfo")
+    public ModelAndView deleteInfo() {
+        return new ModelAndView("/jsp/deleteInfo.jsp");
+    }
+
+    @PostMapping("/deleteInfo")
+    public ModelAndView deleteInfo(@RequestParam String id) {
+        if(!id.isEmpty()) {
+            try {
+                long idL = Long.parseLong(id);
+                webSiteInfoBO.deleteWebSiteInfo(idL);
+                return new ModelAndView("/jsp/deleteInfo.jsp", "operation", true);
+            }  catch (DataAccessException e) {
+                return new ModelAndView("/jsp/deleteInfo.jsp", "operation", false);
+            }
+        } else {
+            return new ModelAndView("/jsp/deleteInfo.jsp", "nullId", true);
+        }
+    }
+
+    @GetMapping("/updateInfo")
+    public ModelAndView updateInfo() {
+        return new ModelAndView("/jsp/updateInfo.jsp");
+    }
+
+    @PostMapping("/updateInfo")
+    public ModelAndView updateInfo(@RequestParam String id) {
+        return new ModelAndView("/jsp/updateInfo.jsp");
     }
 }

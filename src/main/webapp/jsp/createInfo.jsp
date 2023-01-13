@@ -30,6 +30,7 @@
                     <input type="text" name="description" class="form-control" id="description">
                 </div>
                 <button type="submit" class="btn btn-primary">Add</button>
+
                 <c:if test="${operation == true}">
                     <div class="alert alert-success" role="alert">
                         Insert successful.

@@ -20,19 +20,43 @@
 
                         <!-- First option -->
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/home">Home</a>
+                            <a class="nav-link" aria-current="page"
+                               href="${pageContext.request.contextPath}/home">
+                                Home
+                            </a>
                         </li>
 
                         <!-- Second option -->
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/dettagli">Details</a>
+                            <a class="nav-link" aria-current="page"
+                               href="${pageContext.request.contextPath}/dettagli">
+                                Details
+                            </a>
                         </li>
 
                         <!-- Third option -->
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/createInfo">Create Info</a>
+                            <a class="nav-link" aria-current="page"
+                               href="${pageContext.request.contextPath}/createInfo">
+                                Create Info
+                            </a>
                         </li>
 
+                        <!-- Fourth option -->
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page"
+                               href="${pageContext.request.contextPath}/deleteInfo">
+                                Delete Info
+                            </a>
+                        </li>
+
+                        <!-- Fifth option -->
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page"
+                               href="${pageContext.request.contextPath}/updateInfo">
+                                Update Info
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
