@@ -17,6 +17,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
+
                         <!-- First option -->
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/home">Home</a>
@@ -24,8 +25,14 @@
 
                         <!-- Second option -->
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/dettagli">Dettagli</a>
+                            <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/dettagli">Details</a>
                         </li>
+
+                        <!-- Third option -->
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/createInfo">Create Info</a>
+                        </li>
+
                     </ul>
                 </div>
             </div>

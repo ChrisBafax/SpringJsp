@@ -14,14 +14,16 @@
         <header>
             <!-- Navbar -->
             <jsp:include page="navbar.jsp"/>
-            <h1 class="display-1">Home</h1>
         </header>
+        <div class="container ml-5 mr-5">
+            <h1 class="display-1">Home</h1>
 
-        <article>
-            <h5 class="display-5">Ciao</h5>
-            <h6>Il nome è: ${Info.getName()}</h6>
-            <h6>La descrizione è: ${Info.getDescription()}</h6>
-        </article>
+            <article>
+                <h5 class="display-5">Ciao</h5>
+                <h6>The name is: ${Info.getName()}</h6>
+                <h6>The description is: ${Info.getDescription()}</h6>
+            </article>
+        </div>
     </body>
 
     <footer>

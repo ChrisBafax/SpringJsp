@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class WebSiteInfoBOImpl implements WebSiteInfoBO {
 
@@ -15,5 +17,13 @@ public class WebSiteInfoBOImpl implements WebSiteInfoBO {
 
     public WebSiteInfo getWebSiteInfo() throws DataAccessException {
         return webSiteInfoRepository.findFirstByOrderByIdDesc();
+    }
+
+    public List<WebSiteInfo> getAllWebSiteInfo() throws DataAccessException {
+        return webSiteInfoRepository.findAll();
+    }
+
+    public void insertWebSiteInfo(WebSiteInfo webSiteInfo) throws DataAccessException {
+        webSiteInfoRepository.save(webSiteInfo);
     }
 }

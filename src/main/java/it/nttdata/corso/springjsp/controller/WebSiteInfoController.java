@@ -5,7 +5,11 @@ import it.nttdata.corso.springjsp.model.WebSiteInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 public class WebSiteInfoController {
@@ -14,14 +18,30 @@ public class WebSiteInfoController {
     WebSiteInfoBO webSiteInfoBO;
 
     @GetMapping(path = {"/", "/index", "/home"})
-    public ModelAndView home() throws Exception {
+    public ModelAndView home() {
         WebSiteInfo webSiteInfo = webSiteInfoBO.getWebSiteInfo();
         return new ModelAndView("/jsp/index.jsp",
                 "Info", webSiteInfo);
     }
 
-    @GetMapping(path = {"/dettagli"})
-    public ModelAndView dettagli() throws Exception {
-        return new ModelAndView("/jsp/dettagli.jsp");
+    @GetMapping("/dettagli")
+    public ModelAndView dettagli() {
+        List<WebSiteInfo> webSiteInfos = webSiteInfoBO.getAllWebSiteInfo();
+        return new ModelAndView("/jsp/dettagli.jsp",
+                "Infos", webSiteInfos);
+    }
+
+    @GetMapping("/createInfo")
+    public ModelAndView createInfo() {
+        return new ModelAndView("/jsp/createInfo.jsp");
+    }
+
+    @PostMapping("/createInfo")
+    public ModelAndView insertInfo(@RequestParam String name, @RequestParam String description) {
+        WebSiteInfo webSiteInfo = new WebSiteInfo();
+        webSiteInfo.setName(name);
+        webSiteInfo.setDescription(description);
+        webSiteInfoBO.insertWebSiteInfo(webSiteInfo);
+        return new ModelAndView("/jsp/createInfo.jsp", "operation", true);
     }
 }

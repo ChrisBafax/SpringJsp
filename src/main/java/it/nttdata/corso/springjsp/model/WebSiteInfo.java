@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Table(name = "web_site_info")
 public class WebSiteInfo extends BaseEntity {
-
+    
     private String name;
 
     private String description;
