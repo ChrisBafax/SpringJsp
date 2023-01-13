@@ -36,7 +36,7 @@
                             <td><c:out value="${Infos.getName()}"/></td>
                             <td><c:out value="${Infos.getDescription()}"/></td>
                             <td>
-                                <form action="<c:url value="/updateInfo"/>" method="post" class="d-flex">
+                                <form action="${pageContext.request.contextPath}/updateInfo" method="post" class="d-flex">
                                     <input class="form-control me-2" type="hidden" name="id"
                                            value="<c:out value="${Infos.getId()}"/>">
                                     <button type="submit">
