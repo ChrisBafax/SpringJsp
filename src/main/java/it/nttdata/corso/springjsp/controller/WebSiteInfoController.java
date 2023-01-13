@@ -20,6 +20,8 @@ public class WebSiteInfoController {
                 "Info", webSiteInfo);
     }
 
-
-
+    @GetMapping(path = {"/dettagli"})
+    public ModelAndView dettagli() throws Exception {
+        return new ModelAndView("/jsp/dettagli.jsp");
+    }
 }
