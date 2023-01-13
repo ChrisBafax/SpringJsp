@@ -72,7 +72,8 @@ public class WebSiteInfoController {
     }
 
     @PostMapping("/updateInfo")
-    public ModelAndView updateInfo(@RequestParam String id) {
+    public ModelAndView updateInfo(@RequestParam String id, @RequestParam String name, @RequestParam String description) {
+        // work in progress
         return new ModelAndView("/jsp/updateInfo.jsp");
     }
 }
