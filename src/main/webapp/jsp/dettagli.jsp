@@ -25,8 +25,9 @@
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Description</th>
-                        <th scope="col">Edit</th>
-                        <th scope="col">Delete</th>
+                        <th scope="col" style="width: 50px">Edit</th>
+                        <th scope="col" style="width: 50px">Delete</th>
+                        <th style="width: 50px"/>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,7 +40,7 @@
                                 <form action="${pageContext.request.contextPath}/updateInfoPage" method="post" class="d-flex">
                                     <input class="form-control me-2" type="hidden" name="id"
                                            value="<c:out value="${Infos.getId()}"/>">
-                                    <button type="submit">
+                                    <button type="submit" class="border-0 " style="color: black; background-color: transparent">
                                         <i class="bi bi-pencil-square"></i>
                                     </button>
                                 </form>
@@ -48,14 +49,14 @@
                                 <form action="${pageContext.request.contextPath}/deleteInfo" method="post" class="d-flex">
                                     <input class="form-control me-2" type="hidden" name="id"
                                            value="<c:out value="${Infos.getId()}"/>">
-                                    <button type="submit">
+                                    <button type="submit" class="border-0 " style="color: black; background-color: transparent">
                                         <i class="bi bi-trash3"></i>
                                     </button>
                                 </form>
                             </td>
                             <td>
                                 <c:if test="${id == Infos.getId()}">
-                                    <p role="alert">
+                                    <p role="alert" style="color: green; font-size: large">
                                         <i class="bi bi-check-lg"></i>
                                     </p>
                                 </c:if>
