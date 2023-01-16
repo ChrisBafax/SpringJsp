@@ -35,23 +35,20 @@ public class WebSiteInfoBOImpl implements WebSiteInfoBO {
         webSiteInfoRepository.deleteById(id);
     }
 
-    
+
     public WebSiteInfo getByID(long id) throws RuntimeException {
-        WebSiteInfo webSiteInfo = webSiteInfoRepository.findById(id).orElseThrow(
+        return webSiteInfoRepository.findById(id).orElseThrow(
                 () -> new RuntimeException("WebSiteInfo ID."));
-        return webSiteInfo;
     }
 
     public void updateWebSiteInfo(long id, String name, String description) throws DataAccessException {
         WebSiteInfo webSiteInfo1 = getByID(id);
-
         // Check if the name has been updated or not
-        if (name != null) {
+        if (!name.isEmpty()) {
             webSiteInfo1.setName(name);
         }
-
-        // Check if hte description has been updated or not
-        if (description != null) {
+        // Check if the description has been updated or not
+        if (!description.isEmpty()) {
             webSiteInfo1.setDescription(description);
         }
         webSiteInfoRepository.save(webSiteInfo1);
