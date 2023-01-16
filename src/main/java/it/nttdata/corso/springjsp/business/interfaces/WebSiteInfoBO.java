@@ -15,5 +15,7 @@ public interface WebSiteInfoBO {
 
     void deleteWebSiteInfo(long id) throws DataAccessException;
 
-    void updateWebSiteInfo(WebSiteInfo webSiteInfo) throws DataAccessException;
+    public WebSiteInfo getByID(long id) throws RuntimeException;
+
+    public void updateWebSiteInfo(long id, String name, String description) throws DataAccessException;
 }

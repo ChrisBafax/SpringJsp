@@ -5,10 +5,13 @@ import it.nttdata.corso.springjsp.model.WebSiteInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -31,6 +34,22 @@ public class WebSiteInfoController {
         return new ModelAndView("/jsp/dettagli.jsp",
                 "Infos", webSiteInfos);
     }
+
+    @PostMapping("/dettagli")
+    public ModelAndView dettagli2() {
+        List<WebSiteInfo> webSiteInfos = webSiteInfoBO.getAllWebSiteInfo();
+        return new ModelAndView("/jsp/dettagli.jsp",
+                "Infos", webSiteInfos);
+    }
+//    @GetMapping("/dettagli")
+//    public ModelAndView dettagli(@RequestParam long idL) {
+//        List<WebSiteInfo> webSiteInfos = webSiteInfoBO.getAllWebSiteInfo();
+//        ModelAndView link = new ModelAndView("/jsp/dettagli.jsp",
+//                "Infos", webSiteInfos);
+//        link.addObject("id", idL);
+//
+//        return link;
+//    }
 
     @GetMapping("/createInfo")
     public ModelAndView createInfo() {
@@ -66,14 +85,17 @@ public class WebSiteInfoController {
         }
     }
 
-    @GetMapping("/updateInfo")
-    public ModelAndView updateInfo() {
-        return new ModelAndView("/jsp/updateInfo.jsp");
+    @PostMapping("/updateInfoPage")
+    public ModelAndView updateInfoPage(@RequestParam long id) {
+        return new ModelAndView("/jsp/updateInfo.jsp", "id", id);
     }
 
     @PostMapping("/updateInfo")
     public ModelAndView updateInfo(@RequestParam String id, @RequestParam String name, @RequestParam String description) {
-        // work in progress
-        return new ModelAndView("/jsp/updateInfo.jsp");
+        long idL = Long.parseLong(id);
+        webSiteInfoBO.updateWebSiteInfo(idL, name, description);
+
+        // return new RedirectView("/dettagli" + "?id=" + idL);
+        return new ModelAndView("/dettagli", "id", idL);
     }
 }

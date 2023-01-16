@@ -22,8 +22,8 @@
 
     <form action="${pageContext.request.contextPath}/updateInfo" method="post">
         <div class="mb-3">
-            <label for="id" class="form-label">Choose the that you want to update ID:</label>
-            <input type="text" name="id" class="form-control" id="id" aria-describedby="id">
+            <label for="id" class="form-label">Update the info for the ID:</label>
+            <input type="text" name="id" class="form-control" id="id" aria-describedby="id" value="<c:out value="${id}"/>" disabled readonly>
         </div>
         <div class="mb-3">
             <label for="name" class="form-label">New name:</label>
@@ -33,6 +33,8 @@
             <label for="description" class="form-label">New description:</label>
             <input type="text" name="description" class="form-control" id="description" aria-describedby="description">
         </div>
+        <input class="form-control me-2" type="hidden" name="id"
+               value="<c:out value="${id}"/>">
         <button type="submit" class="btn btn-primary">Update</button>
 
     </form>

@@ -20,7 +20,7 @@
 
         <div class="container ml-5 mr-5">
             <h1 class="display-1">Dettagli</h1>
-            <table class="table table-striped">
+            <table class="table table-striped table-responsive">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -36,7 +36,7 @@
                             <td><c:out value="${Infos.getName()}"/></td>
                             <td><c:out value="${Infos.getDescription()}"/></td>
                             <td>
-                                <form action="${pageContext.request.contextPath}/updateInfo" method="post" class="d-flex">
+                                <form action="${pageContext.request.contextPath}/updateInfoPage" method="post" class="d-flex">
                                     <input class="form-control me-2" type="hidden" name="id"
                                            value="<c:out value="${Infos.getId()}"/>">
                                     <button type="submit">
@@ -52,6 +52,13 @@
                                         <i class="bi bi-trash3"></i>
                                     </button>
                                 </form>
+                            </td>
+                            <td>
+                                <c:if test="${id == Infos.getId()}">
+                                    <p role="alert">
+                                        <i class="bi bi-check-lg"></i>
+                                    </p>
+                                </c:if>
                             </td>
                         </tr>
                     </c:forEach>
