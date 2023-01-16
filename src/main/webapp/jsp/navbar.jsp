@@ -50,13 +50,6 @@
                             </a>
                         </li>
 
-                        <!-- Fifth option -->
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page"
-                               href="${pageContext.request.contextPath}/updateInfo">
-                                Update Info
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>

@@ -26,7 +26,7 @@
                     <input type="text" name="name" class="form-control" id="name" aria-describedby="name">
                 </div>
                 <div class="mb-3">
-                    <label for="description" class="form-label">Password</label>
+                    <label for="description" class="form-label">Description:</label>
                     <input type="text" name="description" class="form-control" id="description">
                 </div>
                 <button type="submit" class="btn btn-primary">Add</button>

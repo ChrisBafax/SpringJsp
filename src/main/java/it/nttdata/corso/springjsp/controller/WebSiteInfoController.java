@@ -82,7 +82,6 @@ public class WebSiteInfoController {
     public ModelAndView updateInfo(@RequestParam String id, @RequestParam String name, @RequestParam String description) {
         long idL = Long.parseLong(id);
         webSiteInfoBO.updateWebSiteInfo(idL, name, description);
-
         return new ModelAndView("/dettagli", "id", idL);
     }
 }
